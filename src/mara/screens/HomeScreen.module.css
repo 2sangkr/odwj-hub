@@ -1,0 +1,223 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100dvh;
+  padding: 20px 28px 48px;
+  background: linear-gradient(160deg, #ede9fe 0%, #fce7f3 100%);
+}
+
+/* 최상단 바 */
+.topBar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.appBadge {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--primary-dark);
+  letter-spacing: 0.02em;
+  padding-top: 6px;
+}
+
+/* 홈화면 추가 버튼 — 직사각형, 두 줄 */
+.btnInstall {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(192, 132, 252, 0.35);
+  white-space: normal;
+  width: 76px;
+}
+
+/* 타이틀(좌) + 플로우(우) */
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+/* 플로우차트 (우측) */
+.flow {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-shrink: 0;
+}
+
+.flowRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flowStep {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border-radius: var(--radius-full);
+  padding: 9px 16px 9px 10px;
+  box-shadow: 0 2px 12px rgba(168, 85, 247, 0.12);
+  width: 100%;
+}
+
+.flowEmoji {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.flowLabel {
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--text);
+}
+
+.arrow {
+  font-size: 14px;
+  color: var(--primary);
+  opacity: 0.5;
+  margin: 3px 0;
+}
+
+/* 하단 버튼 */
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btnRandom {
+  width: 100%;
+  padding: 18px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 900;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(192, 132, 252, 0.4);
+  letter-spacing: 0.02em;
+}
+
+.btnManual {
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  color: var(--primary-dark);
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  border: 2px solid var(--primary);
+  cursor: pointer;
+}
+
+.btnRecords {
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 2px solid #ddd5f5;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.hint {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* 수동 설치 안내 모달 */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: flex-end;
+  z-index: 100;
+}
+
+.modal {
+  width: 100%;
+  background: #fff;
+  border-radius: 28px 28px 0 0;
+  padding: 32px 28px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modalTitle {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--text);
+  text-align: center;
+}
+
+.modalSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 20px;
+}
+
+.modalSteps li {
+  font-size: 15px;
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.modalClose {
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}

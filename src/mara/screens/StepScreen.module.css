@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 12px;
+}
+
+.back {
+  background: none;
+  font-size: 22px;
+  color: var(--text-muted);
+  width: 36px;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e0d5f5;
+  transition: all 0.2s;
+}
+
+.dotActive {
+  background: var(--primary-dark);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.stepLabel {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 24px 24px;
+}
+
+.footer {
+  padding: 16px 24px 36px;
+  background: var(--bg);
+}
+
+.btnNext {
+  width: 100%;
+  padding: 18px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 900;
+  box-shadow: 0 6px 20px rgba(192, 132, 252, 0.35);
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.btnNext:disabled {
+  opacity: 0.35;
+  box-shadow: none;
+}
+
+.btnNext:not(:disabled):active {
+  transform: scale(0.97);
+}

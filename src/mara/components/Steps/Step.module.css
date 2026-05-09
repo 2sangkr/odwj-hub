@@ -1,0 +1,130 @@
+.container {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-top: -8px;
+}
+
+/* 선택 칩 */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  position: relative;
+  padding: 12px 18px;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  border: 2px solid #e8dff8;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.15s;
+}
+
+.chip:active {
+  transform: scale(0.95);
+}
+
+.chipSelected {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(192, 132, 252, 0.4);
+}
+
+.chipWide {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+}
+
+/* 그룹 */
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.groupLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+/* 인기 뱃지 */
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -4px;
+  background: var(--accent-2);
+  color: #1e1b2e;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+}
+
+/* 재료 이모지 (칩 내) */
+.chipEmoji {
+  margin-right: 4px;
+  font-style: normal;
+}
+
+/* 맵기 이모지 */
+.spiceEmoji {
+  font-size: 18px;
+}
+
+/* 토글 칩 (땅콩/마유) */
+.toggleRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.toggleChip {
+  flex: 1;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  border: 2px solid #e8dff8;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.toggleOn {
+  background: var(--surface-2);
+  border-color: var(--primary);
+  color: var(--primary-dark);
+}

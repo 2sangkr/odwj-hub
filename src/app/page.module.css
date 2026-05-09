@@ -1,0 +1,160 @@
+.main {
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 헤더 */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.subTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+/* 앱 카드 그리드 */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1);
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.card:not(.cardSoon):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(168, 85, 247, 0.18);
+  border-color: var(--primary);
+}
+
+.card:not(.cardSoon):active {
+  transform: scale(0.97);
+}
+
+.cardSoon {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.cardEmoji {
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--text);
+}
+
+.cardDesc {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.soonBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 900;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  padding: 3px 8px;
+  border-radius: 100px;
+}
+
+/* 오늘의 추천 */
+.recommend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recommendLabel {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--primary-dark);
+  letter-spacing: 0.04em;
+}
+
+.recommendCard {
+  background: linear-gradient(135deg, #ede9fe, #fce7f3);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  transition: transform 0.15s;
+  border: 2px solid transparent;
+}
+
+.recommendCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.recommendEmoji {
+  font-size: 40px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.recommendText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recommendTitle {
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--text);
+}
+
+.recommendDesc {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.recommendArrow {
+  font-size: 20px;
+  color: var(--primary);
+  font-weight: 900;
+  flex-shrink: 0;
+}
