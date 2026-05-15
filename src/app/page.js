@@ -21,7 +21,7 @@ const CATEGORIES = [
     id: "drinking",
     label: "🍺 술자리 / 회식",
     apps: [
-      { id: "toast",    emoji: "🥂", title: "건배제의 생성기",     href: "/toast", color: "#fef9c3", ready: true, large: true },
+      { id: "toast",    emoji: "🥂", title: "건배제의 생성기",     href: "/toast", color: "#fef9c3", ready: true, large: true, isNew: true },
       { id: "samhaeng", emoji: "✍️",  title: "삼행시 뽑기",        href: "#", color: "#fdf4ff", ready: false },
       { id: "penalty",  emoji: "😈", title: "벌칙 생성기",         href: "#", color: "#fff1f2", ready: false },
       { id: "game",     emoji: "🎯", title: "술게임 뽑기",         href: "#", color: "#eff6ff", ready: false },
@@ -63,7 +63,7 @@ const CATEGORIES = [
     id: "office",
     label: "💼 직장인 생존킷",
     apps: [
-      { id: "quit",     emoji: "🏃", title: "퇴근 카운트",        href: "#", color: "#fff7ed", ready: false },
+      { id: "quit",     emoji: "🏃", title: "퇴근 카운트",        href: "/quit", color: "#fff7ed", ready: true, isNew: true },
       { id: "meeting",  emoji: "😴", title: "회의 스킵 이유",     href: "#", color: "#f1f5f9", ready: false },
       { id: "excuse",   emoji: "😅", title: "오늘의 핑계",        href: "#", color: "#fdf2f8", ready: false },
       { id: "pomodoro", emoji: "🍅", title: "뽀모도로",            href: "#", color: "#fff1f2", ready: false },
@@ -75,7 +75,7 @@ const CATEGORIES = [
     id: "living",
     label: "🏠 살림 밀착",
     apps: [
-      { id: "fridge",  emoji: "🖤", title: "검은봉지 체크",       href: "#", color: "#f0fdf4", ready: false, large: true },
+      { id: "fridge",  emoji: "🖤", title: "검은봉지 체크",       href: "/fridge", color: "#f0fdf4", ready: true, large: true, isNew: true },
       { id: "split",   emoji: "💸", title: "N빵 계산기",          href: "#", color: "#ecfdf5", ready: false },
       { id: "mart",    emoji: "🛍️", title: "마트 합산 계산",      href: "#", color: "#fef9c3", ready: false },
       { id: "clean",   emoji: "🧹", title: "청소 순서 뽑기",      href: "#", color: "#f0fdf4", ready: false },
@@ -115,6 +115,8 @@ const CATEGORIES = [
   },
 ];
 
+const NEW_APPS = CATEGORIES.flatMap((cat) => cat.apps).filter((app) => app.isNew);
+
 function AppCard({ app }) {
   if (app.empty) return <div className={styles.emptyCard} />;
 
@@ -148,17 +150,73 @@ function AppCard({ app }) {
   );
 }
 
+function NewAppCard({ app }) {
+  const inner = (
+    <>
+      <span className={styles.newCardEmoji}>{app.emoji}</span>
+      <span className={styles.newCardTitle}>{app.title}</span>
+      {app.isNew && <span className={styles.newBadge}>NEW</span>}
+    </>
+  );
+
+  return (
+    <Link href={app.href} className={styles.newCard} style={{ "--card-bg": app.color }}>
+      {inner}
+    </Link>
+  );
+}
+
 export default function Home() {
   return (
     <main className={styles.main}>
+
+      {/* 헤더 */}
       <header className={styles.header}>
-        <h1 className={styles.title}>오늘 뭐 하지? 🤔</h1>
-        <InstallBanner />
+        <div className={styles.headerLogo}>
+          <span className={styles.logoIcon}>🤔</span>
+          <span className={styles.logoText}>오늘 뭐 하지?</span>
+        </div>
+        <div className={styles.headerActions}>
+          <InstallBanner />
+        </div>
       </header>
 
+      {/* 히어로 카드 */}
+      <div className={styles.heroCard}>
+        <p className={styles.heroLabel}>오늘 뭐 하지?</p>
+        <h1 className={styles.heroTitle}>일상의 소소한 불편을<br />해소하는 미니앱 모음</h1>
+        <p className={styles.heroDesc}>
+          마트 장보기 합산, 냉장고 관리, 랜덤 메뉴 선택 등<br />
+          산발적인 고민 대신 여기서 간편하게 해결하세요.<br />
+          오늘의 식빵끈 같은 도구가 내일의 쾌적함을 만듭니다.
+        </p>
+        <a
+          href="mailto:letters81@gmail.com?subject=새로운 앱 제안"
+          className={styles.btnHero}
+        >
+          새로운 앱(도구) 제안하기
+        </a>
+      </div>
+
+      {/* 새로 추가된 앱 */}
+      {NEW_APPS.length > 0 && (
+        <div className={styles.newSection}>
+          <p className={styles.newSectionLabel}>🆕 새로 추가된 도구</p>
+          <div className={styles.newList}>
+            {NEW_APPS.map((app) => (
+              <NewAppCard key={app.id} app={app} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 섹션 타이틀 */}
+      <h2 className={styles.mainTitle}>오늘 뭐 하지? 🤔</h2>
+
+      {/* 카테고리 그리드 */}
       {CATEGORIES.map((cat) => (
         <section key={cat.id} className={styles.section}>
-          <h2 className={styles.sectionTitle}>{cat.label}</h2>
+          <h3 className={styles.sectionTitle}>{cat.label}</h3>
           <div className={styles.grid}>
             {cat.apps.map((app) => (
               <AppCard key={app.id} app={app} />
